@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/global"
 import { Transactions } from "./pages/Transactions"
 
 import './styles/global'
+import { TransactionProvider } from "./contexts/TransactionsContext"
 
 
 export function App() {
@@ -11,7 +12,9 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
+      <TransactionProvider>
         <Transactions />
+      </TransactionProvider>  
     </ThemeProvider>
   )
 }

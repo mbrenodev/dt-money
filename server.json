@@ -23,6 +23,14 @@
       "category": "Remuneração",
       "price": 3000,
       "createdAt": "2023-10-14T11:28:20.500Z"
+    },
+    {
+      "description": "Desenvolvimento de App",
+      "price": 10000,
+      "category": "Venda",
+      "type": "income",
+      "createdAt": "2023-10-24T10:34:36.116Z",
+      "id": 4
     }
   ]
 }

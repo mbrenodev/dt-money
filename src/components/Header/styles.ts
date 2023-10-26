@@ -15,10 +15,10 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media (min-width: 24.375rem) {
+  @media (max-width: 390px) {
     img {
-      width: 7.9375rem;
-      height: 1.5625rem;
+      width: 117px;
+      height: 32px;
       flex-shrink: 0;
     }
   }
@@ -39,11 +39,12 @@ export const NewTransactionButton = styled.button`
     transition: background-color 0.2s;
   }
 
-  @media (min-width: 24.375rem) {
-    display: flex;
-    padding: 0.5rem 1rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
+  @media (max-width: 390px) {
+    width: 8.3rem;
+    height: 2.25rem;
+    padding: 0;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 `

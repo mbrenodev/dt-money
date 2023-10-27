@@ -5,6 +5,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext } from 'react'
 import { TransactionsContext } from '../../../../contexts/TransactionsContext'
+import { screenDisplay } from '../../../../utils/formatter'
 
 const searchFormSchema = z.object({
   query: z.string(),
@@ -34,8 +35,8 @@ export function SearchForm() {
         {...register('query')}
       />
       <button type="submit" disabled={isSubmitting}>
-        <MagnifyingGlass size={20} />
-        Buscar
+        <MagnifyingGlass size={24} weight="bold" />
+        {screenDisplay ? '' : 'Buscar'}
       </button>
     </SearchFormContainer>
   )

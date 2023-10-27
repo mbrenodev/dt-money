@@ -41,10 +41,10 @@ export const NewTransactionButton = styled.button`
 
   @media (max-width: 390px) {
     width: 8.3rem;
-    height: 2.25rem;
+    height: 2.5rem;
     padding: 0;
     color: white;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.88rem;
+    font-weight: 500;
   }
 `

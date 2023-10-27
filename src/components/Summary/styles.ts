@@ -41,4 +41,26 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     css`
       background: ${props.theme['green-500']};
     `}
+
+  span:last-child {
+    display: none;
+  }
+
+  @media (max-width: 390px) {
+    width: 270px;
+    height: 150px;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+
+    span:last-child {
+      font-size: 0.82rem;
+      display: block;
+      color: ${(props) => props.theme['gray-500']};
+    }
+
+    strong {
+      font-size: 1.5rem;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+  }
 `

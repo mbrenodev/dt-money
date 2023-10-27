@@ -16,6 +16,7 @@ export function Summary() {
           </header>
 
           <strong>{priceFormatter.format(summary.income)}</strong>
+          <span>Última entrada em 13 de outubro</span>
         </SummaryCard>
         <SummaryCard>
           <header>
@@ -24,6 +25,7 @@ export function Summary() {
           </header>
 
           <strong>{priceFormatter.format(summary.outcome)}</strong>
+          <span>Última saída em 13 de outubro</span>
         </SummaryCard>
         <SummaryCard variant="green">
           <header>
@@ -32,6 +34,7 @@ export function Summary() {
           </header>
 
           <strong>{priceFormatter.format(summary.total)}</strong>
+          <span>De 15/03/22 até 13/04/22</span>
         </SummaryCard>
       </SummaryContainer>
     </>

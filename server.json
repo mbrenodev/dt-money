@@ -31,6 +31,14 @@
       "type": "income",
       "createdAt": "2023-10-24T10:34:36.116Z",
       "id": 4
+    },
+    {
+      "description": "Almoço",
+      "price": 18,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-10-24T11:19:18.593Z",
+      "id": 5
     }
   ]
 }

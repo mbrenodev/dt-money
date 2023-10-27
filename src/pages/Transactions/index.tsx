@@ -23,6 +23,15 @@ export function Transactions() {
       <Header />
       <Summary />
       <TransactionsContainer>
+        {screenDisplay ? (
+          <div>
+            <span>Transações</span>
+            <span>4 itens</span>
+          </div>
+        ) : (
+          ''
+        )}
+
         <SearchForm />
         <TransactionsTable>
           <tbody>

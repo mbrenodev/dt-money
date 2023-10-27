@@ -5,6 +5,28 @@ export const TransactionsContainer = styled.main`
   max-width: 1120px;
   margin: 4rem auto 0;
   padding: 0 1.5rem;
+
+  @media (max-width: 390px) {
+    margin: 1.5rem auto 0;
+    div:first-child {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+
+      span:first-child {
+        color: ${(props) => props.theme['gray-300']};
+        font-weight: 400;
+        line-height: 160%;
+      }
+
+      span:last-child {
+        color: ${(props) => props.theme['gray-500']};
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 160%;
+      }
+    }
+  }
 `
 
 export const TransactionsTable = styled.table`
@@ -36,7 +58,7 @@ export const TransactionsTable = styled.table`
   }
 
   @media (max-width: 390px) {
-    margin-top: 0.1875rem;
+    margin-top: 0.1rem;
 
     td {
       padding: 0.4rem 1.5rem;
@@ -50,9 +72,10 @@ export const TransactionsTable = styled.table`
     }
 
     tr > td:first-child {
-      padding: 1.2rem 0 0.4rem 1.5rem;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      padding: 1.2rem 0 0.2rem 1.5rem;
+      font-size: 0.9rem;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       color: ${(props) => props.theme['gray-300']};
     }
 
@@ -62,8 +85,8 @@ export const TransactionsTable = styled.table`
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
     }
 
     div > td {
@@ -71,7 +94,7 @@ export const TransactionsTable = styled.table`
       justify-content: space-between;
       align-items: center;
       padding-bottom: 1rem;
-      height: 3.75rem;
+      height: 3.3rem;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       gap: 5px;

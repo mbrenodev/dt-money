@@ -17,8 +17,8 @@ export const HeaderContent = styled.div`
 
   @media (max-width: 390px) {
     img {
-      width: 117px;
-      height: 32px;
+      width: 110px;
+      height: 28px;
       flex-shrink: 0;
     }
   }
@@ -40,10 +40,10 @@ export const NewTransactionButton = styled.button`
   }
 
   @media (max-width: 390px) {
-    width: 8.3rem;
-    height: 2.5rem;
+    width: 8.2rem;
+    height: 2.2rem;
     padding: 0;
-    color: white;
+    color: ${(props) => props.theme.while};
     font-size: 0.88rem;
     font-weight: 500;
   }

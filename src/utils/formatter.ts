@@ -4,3 +4,5 @@ export const priceFormatter = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
   currency: 'BRL',
 })
+
+export const screenDisplay = window.screen.width < 391

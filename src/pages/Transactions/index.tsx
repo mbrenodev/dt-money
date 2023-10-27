@@ -8,7 +8,12 @@ import {
   TransactionsTable,
 } from './styles'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
-import { dateFormatter, priceFormatter } from '../../utils/formatter'
+import {
+  dateFormatter,
+  priceFormatter,
+  screenDisplay,
+} from '../../utils/formatter'
+import { CalendarBlank, TagSimple } from 'phosphor-react'
 
 export function Transactions() {
   const { transactions } = useContext(TransactionsContext)
@@ -24,17 +29,23 @@ export function Transactions() {
             {transactions.map((transaction) => {
               return (
                 <tr key={transaction.id}>
-                  <td width="30%">{transaction.description}</td>
+                  <td width="">{transaction.description}</td>
                   <td>
                     <PriceHighlight variant={transaction.type}>
                       {transaction.type === 'outcome' && '- '}
                       {priceFormatter.format(transaction.price)}
                     </PriceHighlight>
                   </td>
-                  <td>{transaction.category}</td>
-                  <td>
-                    {dateFormatter.format(new Date(transaction.createdAt))}
-                  </td>
+                  <div>
+                    <td>
+                      {screenDisplay ? <TagSimple size={16} /> : ''}
+                      {transaction.category}
+                    </td>
+                    <td>
+                      {screenDisplay ? <CalendarBlank size={16} /> : ''}
+                      {dateFormatter.format(new Date(transaction.createdAt))}
+                    </td>
+                  </div>
                 </tr>
               )
             })}

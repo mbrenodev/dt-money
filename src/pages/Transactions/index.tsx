@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { SearchForm } from './components/SearchForm'
@@ -14,9 +13,12 @@ import {
   screenDisplay,
 } from '../../utils/formatter'
 import { CalendarBlank, TagSimple } from 'phosphor-react'
+import { useContextSelector } from 'use-context-selector'
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext)
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions
+  })
 
   return (
     <>
@@ -45,7 +47,7 @@ export function Transactions() {
                       {priceFormatter.format(transaction.price)}
                     </PriceHighlight>
                   </td>
-                  <div>
+                  <>
                     <td>
                       {screenDisplay ? <TagSimple size={16} /> : ''}
                       {transaction.category}
@@ -54,7 +56,7 @@ export function Transactions() {
                       {screenDisplay ? <CalendarBlank size={16} /> : ''}
                       {dateFormatter.format(new Date(transaction.createdAt))}
                     </td>
-                  </div>
+                  </>
                 </tr>
               )
             })}

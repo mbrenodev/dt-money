@@ -47,7 +47,7 @@ export function Transactions() {
                       {priceFormatter.format(transaction.price)}
                     </PriceHighlight>
                   </td>
-                  <>
+                  <div>
                     <td>
                       {screenDisplay ? <TagSimple size={16} /> : ''}
                       {transaction.category}
@@ -56,7 +56,7 @@ export function Transactions() {
                       {screenDisplay ? <CalendarBlank size={16} /> : ''}
                       {dateFormatter.format(new Date(transaction.createdAt))}
                     </td>
-                  </>
+                  </div>
                 </tr>
               )
             })}

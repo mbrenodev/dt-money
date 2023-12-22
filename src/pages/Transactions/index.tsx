@@ -2,6 +2,7 @@ import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { SearchForm } from './components/SearchForm'
 import {
+  PageContainer,
   PriceHighlight,
   TransactionsContainer,
   TransactionsTable,
@@ -14,6 +15,7 @@ import {
 } from '../../utils/formatter'
 import { CalendarBlank, TagSimple } from 'phosphor-react'
 import { useContextSelector } from 'use-context-selector'
+import { Pagination } from '../../components/Pagination'
 
 export function Transactions() {
   const transactions = useContextSelector(TransactionsContext, (context) => {
@@ -21,7 +23,7 @@ export function Transactions() {
   })
 
   return (
-    <>
+    <PageContainer>
       <Header />
       <Summary />
       <TransactionsContainer>
@@ -63,6 +65,7 @@ export function Transactions() {
           </tbody>
         </TransactionsTable>
       </TransactionsContainer>
-    </>
+      <Pagination />
+    </PageContainer>
   )
 }

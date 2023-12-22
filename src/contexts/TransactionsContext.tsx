@@ -18,9 +18,20 @@ interface CreateTransactionInput {
   type: 'income' | 'outcome'
 }
 
+interface FetchAllTransactionsProps {
+  query?: string
+  page?: number
+}
+
 interface TransactionContextType {
   transactions: Transaction[]
-  fetchTransactions: (query?: string) => Promise<void>
+  allTransactions: Transaction[]
+  limitPerPage: number
+
+  fetchTransactions: ({
+    page,
+    query,
+  }: FetchAllTransactionsProps) => Promise<void>
   createTransaction: (data: CreateTransactionInput) => Promise<void>
 }
 
@@ -30,18 +41,36 @@ interface TransationsProviderProps {
 
 export const TransactionsContext = createContext({} as TransactionContextType)
 
+const limitPerPage = 4
+
 export function TransactionProvider({ children }: TransationsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [allTransactions, setAllTransactions] = useState<Transaction[]>([])
 
-  const fetchTransactions = useCallback(async (query?: string) => {
+  const fetchTransactions = useCallback(
+    async ({ page = 1, query = '' }: FetchAllTransactionsProps) => {
+      const response = await api.get('/transactions', {
+        params: {
+          _sort: 'createdAt',
+          _order: 'desc',
+          q: query,
+          _page: page,
+          _limit: limitPerPage,
+        },
+      })
+      setTransactions(response.data)
+    },
+    [],
+  )
+
+  const fetchAllTransactions = useCallback(async () => {
     const response = await api.get('/transactions', {
       params: {
         _sort: 'createdAt',
         _order: 'desc',
-        q: query,
       },
     })
-    setTransactions(response.data)
+    setAllTransactions(response.data)
   }, [])
 
   const createTransaction = useCallback(
@@ -61,7 +90,11 @@ export function TransactionProvider({ children }: TransationsProviderProps) {
   )
 
   useEffect(() => {
-    fetchTransactions()
+    fetchAllTransactions()
+  }, [fetchAllTransactions])
+
+  useEffect(() => {
+    fetchTransactions({})
   }, [fetchTransactions])
 
   return (
@@ -70,6 +103,8 @@ export function TransactionProvider({ children }: TransationsProviderProps) {
         transactions,
         fetchTransactions,
         createTransaction,
+        allTransactions,
+        limitPerPage,
       }}
     >
       {children}

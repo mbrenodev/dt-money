@@ -29,8 +29,8 @@ interface TransactionContextType {
   limitPerPage: number
 
   fetchTransactions: ({
-    page,
     query,
+    page,
   }: FetchAllTransactionsProps) => Promise<void>
   createTransaction: (data: CreateTransactionInput) => Promise<void>
 }
@@ -48,7 +48,7 @@ export function TransactionProvider({ children }: TransationsProviderProps) {
   const [allTransactions, setAllTransactions] = useState<Transaction[]>([])
 
   const fetchTransactions = useCallback(
-    async ({ page = 1, query = '' }: FetchAllTransactionsProps) => {
+    async ({ page = 1, query }: FetchAllTransactionsProps) => {
       const response = await api.get('/transactions', {
         params: {
           _sort: 'createdAt',

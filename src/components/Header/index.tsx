@@ -3,6 +3,7 @@ import { HeaderContainer, HeaderContent, NewTransactionButton } from './styles'
 import logoImg from '../../assets/logo-dt-money.svg'
 import * as Dialog from '@radix-ui/react-dialog'
 import { NewTransactionModal } from '../NewTransactionModal'
+import { ButtonAuth } from '../ButtonAuth'
 
 export function Header() {
   return (
@@ -15,6 +16,7 @@ export function Header() {
           </Dialog.Trigger>
           <NewTransactionModal />
         </Dialog.Root>
+        <ButtonAuth />
       </HeaderContent>
     </HeaderContainer>
   )
